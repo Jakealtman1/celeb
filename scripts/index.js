@@ -1,5 +1,6 @@
 window.onload = function () {
     load_celeb();
+    console.log("loaded");
 }
 
 function load_celeb() {
