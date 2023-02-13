@@ -1,33 +1,12 @@
-// const celebs = []
+window.onload = function () {
+    load_celeb();
+}
 
-// window.onload = function() {
-//     console.log("Window Loaded");
-//     // load();
-// }
-
-// function start() {
-
-// }
-
-// function pause() {
-
-// }
-
-// function next() {
-
-// }
-
-// function skip() {
-
-// }
-
-// function load() {
-//     let fetchResult = fetch("./assets/celebs.csv");
-//     console.log(fetchResult);
-
-//     fetchResult.then(res => {
-//         res.text()
-//     }).then(data => {
-//         console.log(data)
-//     });
-// }
+function load_celeb() {
+    fetch("https://raw.githubusercontent.com/Jakealtman1/celeb/main/assets/celebs.csv")
+    .then((response) => response.text())
+    .then((data) => {
+        const wordsArray = data.split("\n");
+        console.log(wordsArray);
+    });
+}
