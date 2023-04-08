@@ -1,38 +1,134 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Celebrity Game</title>
-        <link rel="stylesheet" href="index.css">
-        <script src="index.js"></script>
-    </head>
-    <body>
-        <!-- <div class="table-wrapper">
-            <table class="left-table">
-                <tr>
-                    <th>Table 1</th>
-                </tr>
-                <tr>
-                    <td>Row 1, Column 1</td>
-                    <td>Row 1, Column 2</td>
-                </tr>
-                <tr>
-                    <td>Row 2, Column 1</td>
-                    <td>Row 2, Column 2</td>
-                </tr>
-            </table>
-            <table class="right-table">
-                <tr>
-                    <th>Table 3</th>
-                </tr>
-                <tr>
-                    <td>Row 1, Column 1</td>
-                    <td>Row 1, Column 2</td>
-                </tr>
-                <tr>
-                    <td>Row 2, Column 1</td>
-                    <td>Row 2, Column 2</td>
-                </tr>
-            </table>
-        </div> -->
-    </body>
+<html lang="en">
+
+<head>
+    <title>Celebrity Game</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <div class="table-wrapper">
+        <table class="left-table green">
+            <tr>
+                <th>
+                    <h1>Team 1</h1>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <h1>0:00</h1>
+                    <button id="start1">Start</button>
+                    <button id="pause1">Pause</button>
+                    <button id="stop1">Stop</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Duration:</h3>
+                    <input type="range" id="duration1" min="15" max="300" step="15" value="60">
+                    <span id="duration-label1">1:00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Score:</h3>
+                    <button id="pass1">Pass</button>
+                    <button id="next1">Next</button>
+                    <button id="reset1">Reset</button>
+                </td>
+            </tr>
+        </table>
+        <table class="left-table blue">
+            <tr>
+                <th>
+                    <h1>Team 2</h1>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <h1>0:00</h1>
+                    <button id="start2">Start</button>
+                    <button id="pause2">Pause</button>
+                    <button id="stop2">Stop</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Duration:</h3>
+                    <input type="range" id="duration1" min="15" max="300" step="15" value="60">
+                    <span id="duration-label2">1:00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Score:</h3>
+                    <button id="pass2">Pass</button>
+                    <button id="next2">Next</button>
+                    <button id="reset2">Reset</button>
+                </td>
+            </tr>
+        </table>
+        <table class="left-table purple">
+            <tr>
+                <th>
+                    <h1>Team 3</h1>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <h1>0:00</h1>
+                    <button id="start3">Start</button>
+                    <button id="pause3">Pause</button>
+                    <button id="stop3">Stop</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Duration:</h3>
+                    <input type="range" id="duration3" min="15" max="300" step="15" value="60">
+                    <span id="duration-label3">1:00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Score:</h3>
+                    <button id="pass3">Pass</button>
+                    <button id="next3">Next</button>
+                    <button id="reset3">Reset</button>
+                </td>
+            </tr>
+        </table>
+        <table class="grey">
+            <tr>
+                <th>
+                    <h1>Team 4</h1>
+                </th>
+            </tr>
+            <tr>
+                <td>
+                    <h1>0:00</h1>
+                    <button id="start4">Start</button>
+                    <button id="pause4">Pause</button>
+                    <button id="stop4">Stop</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Duration:</h3>
+                    <input type="range" id="duration4" min="15" max="300" step="15" value="60">
+                    <span id="duration-label4">1:00</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Score:</h3>
+                    <button id="pass4">Pass</button>
+                    <button id="next4">Next</button>
+                    <button id="reset4">Reset</button>
+                </td>
+            </tr>
+    </div>
+</body>
+
 </html>
