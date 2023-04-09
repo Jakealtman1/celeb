@@ -8,6 +8,12 @@ let pause1, pause2, pause3, pause4;
 let stop1, stop2, stop3, stop4;
 let duration1, duration2, duration3, duration4;
 let duration_label1, duration_label2, duration_label3, duration_label4;
+let score1, score2, score3, score4;
+let points1, points2, points3, points4;
+let name1, name2, name3, name4;
+let pass1, pass2, pass3, pass4;
+let next1, next2, next3, next4;
+let reset1, reset2, reset3, reset4;
 
 window.onload = async function() {
     const response = await fetch('https://raw.githubusercontent.com/Jakealtman1/celeb/main/celeb.csv')
@@ -66,12 +72,55 @@ window.onload = async function() {
     pause4.addEventListener('click', pauseTimer4);
     stop4.addEventListener('click', stopTimer4);
     duration4.addEventListener('change', updateDuration4);
+
+    score1 = document.getElementById('score1');
+    score2 = document.getElementById('score2');
+    score3 = document.getElementById('score3');
+    score4 = document.getElementById('score4');
+
+    points1 = 0, points2 = 0, points3 = 0, points4 = 0;
+
+    name1 = document.getElementById('name1');
+    name2 = document.getElementById('name2');
+    name3 = document.getElementById('name3');
+    name4 = document.getElementById('name4');
+
+    pass1 = document.getElementById('pass1');
+    pass2 = document.getElementById('pass2');
+    pass3 = document.getElementById('pass3');
+    pass4 = document.getElementById('pass4');
+
+    next1 = document.getElementById('next1');
+    next2 = document.getElementById('next2');
+    next3 = document.getElementById('next3');
+    next4 = document.getElementById('next4');
+
+    reset1 = document.getElementById('reset1');
+    reset2 = document.getElementById('reset2');
+    reset3 = document.getElementById('reset3');
+    reset4 = document.getElementById('reset4');
+
+    pass1.addEventListener('click', updateCeleb1);
+    next1.addEventListener('click', nextCeleb1);
+    reset1.addEventListener('click', resetCeleb1);
+
+    pass2.addEventListener('click', updateCeleb2);
+    next2.addEventListener('click', nextCeleb2);
+    reset2.addEventListener('click', resetCeleb2);
+
+    pass3.addEventListener('click', updateCeleb3);
+    next3.addEventListener('click', nextCeleb3);
+    reset3.addEventListener('click', resetCeleb3);
+
+    pass4.addEventListener('click', updateCeleb4);
+    next4.addEventListener('click', nextCeleb4);
+    reset4.addEventListener('click', resetCeleb4);
 }
 
 function startTimer1() {
     if (!running1) {
         time1 = parseInt(duration1.value);
-        pauseTimer1();
+        pauseTimer1(); updateCeleb1();
     }
 }
 
@@ -108,14 +157,14 @@ function updateDuration1() {
     const time = parseInt(duration1.value);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     duration_label1.textContent = formattedTime;
 }
 
 function startTimer2() {
     if (!running2) {
         time2 = parseInt(duration2.value);
-        pauseTimer2();
+        pauseTimer2(); updateCeleb2();
     }
 }
 
@@ -152,14 +201,14 @@ function updateDuration2() {
     const time = parseInt(duration2.value);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     duration_label2.textContent = formattedTime;
 }
 
 function startTimer3() {
     if (!running3) {
         time3 = parseInt(duration3.value);
-        pauseTimer3();
+        pauseTimer3(); updateCeleb3();
     }
 }
 
@@ -196,14 +245,14 @@ function updateDuration3() {
     const time = parseInt(duration3.value);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     duration_label3.textContent = formattedTime;
 }
 
 function startTimer4() {
     if (!running4) {
         time4 = parseInt(duration4.value);
-        pauseTimer4();
+        pauseTimer4(); updateCeleb4();
     }
 }
 
@@ -240,6 +289,106 @@ function updateDuration4() {
     const time = parseInt(duration4.value);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
     duration_label4.textContent = formattedTime;
+}
+
+function updateCeleb1() {
+    if (running1) {
+        const pos = Math.floor(Math.random() * celebs.length);
+        name1.textContent = "Name: " + celebs[pos];
+    }
+}
+
+function nextCeleb1() {
+    if (running1) {
+        updateScore1(points1+1);
+        updateCeleb1();
+    }
+}
+
+function resetCeleb1() {
+    updateScore1(0);
+    name1.textContent = "Name: \"\"";
+}
+
+function updateScore1(score) {
+    points1 = score;
+    const formattedScore = `Score: ${points1.toString().padStart(2, '0')}`;
+    score1.textContent = formattedScore;
+}
+
+function updateCeleb2() {
+    if (running2) {
+        const pos = Math.floor(Math.random() * celebs.length);
+        name2.textContent = "Name: " + celebs[pos];
+    }
+}
+
+function nextCeleb2() {
+    if (running2) {
+        updateScore2(points2+1);
+        updateCeleb2();
+    }
+}
+
+function resetCeleb2() {
+    updateScore2(0);
+    name2.textContent = "Name: \"\"";
+}
+
+function updateScore2(score) {
+    points2 = score;
+    const formattedScore = `Score: ${points2.toString().padStart(2, '0')}`;
+    score2.textContent = formattedScore;
+}
+
+function updateCeleb3() {
+    if (running3) {
+        const pos = Math.floor(Math.random() * celebs.length);
+        name3.textContent = "Name: " + celebs[pos];
+    }
+}
+
+function nextCeleb3() {
+    if (running3) {
+        updateScore3(points3+1);
+        updateCeleb3();
+    }
+}
+
+function resetCeleb3() {
+    updateScore3(0);
+    name3.textContent = "Name: \"\"";
+}
+
+function updateScore3(score) {
+    points3 = score;
+    const formattedScore = `Score: ${points3.toString().padStart(2, '0')}`;
+    score3.textContent = formattedScore;
+}
+
+function updateCeleb4() {
+    if (running4) {
+        const pos = Math.floor(Math.random() * celebs.length);
+        name4.textContent = "Name: " + celebs[pos];
+    }
+}
+
+function nextCeleb4() {
+    if (running4) {
+        updateScore4(points4+1);
+        updateCeleb4();
+    }
+}
+
+function resetCeleb4() {
+    updateScore4(0);
+    name4.textContent = "Name: \"\"";
+}
+
+function updateScore4(score) {
+    points4 = score;
+    const formattedScore = `Score: ${points4.toString().padStart(2, '0')}`;
+    score4.textContent = formattedScore;
 }
