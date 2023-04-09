@@ -71,11 +71,7 @@ window.onload = async function() {
 function startTimer1() {
     if (!running1) {
         time1 = parseInt(duration1.value);
-        interval1 = setInterval(() => {
-            if (time1 === 0) stopTimer1();
-            else updateTimer1(time1-1);
-        }, 1000);
-        running1 = true;
+        pauseTimer1();
     }
 }
 
@@ -97,13 +93,14 @@ function pauseTimer1() {
 function stopTimer1() {
     clearInterval(interval1);
     running1 = false; updateTimer1(0);
+    pause1.textContent = 'Pause';
 }
 
 function updateTimer1(time) {
     time1 = time;
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     timer1.textContent = formattedTime;
 }
 
@@ -111,18 +108,14 @@ function updateDuration1() {
     const time = parseInt(duration1.value);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     duration_label1.textContent = formattedTime;
 }
 
 function startTimer2() {
     if (!running2) {
         time2 = parseInt(duration2.value);
-        interval2 = setInterval(() => {
-            if (time2 === 0) stopTimer2();
-            else updateTimer2(time2-1);
-        }, 1000);
-        running2 = true;
+        pauseTimer2();
     }
 }
 
@@ -144,13 +137,14 @@ function pauseTimer2() {
 function stopTimer2() {
     clearInterval(interval2);
     running2 = false; updateTimer2(0);
+    pause2.textContent = 'Pause';
 }
 
 function updateTimer2(time) {
     time2 = time;
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     timer2.textContent = formattedTime;
 }
 
@@ -158,18 +152,14 @@ function updateDuration2() {
     const time = parseInt(duration2.value);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     duration_label2.textContent = formattedTime;
 }
 
 function startTimer3() {
     if (!running3) {
         time3 = parseInt(duration3.value);
-        interval3 = setInterval(() => {
-            if (time3 === 0) stopTimer3();
-            else updateTimer3(time3-1);
-        }, 1000);
-        running3 = true;
+        pauseTimer3();
     }
 }
 
@@ -191,13 +181,14 @@ function pauseTimer3() {
 function stopTimer3() {
     clearInterval(interval3);
     running3 = false; updateTimer3(0);
+    pause3.textContent = 'Pause';
 }
 
 function updateTimer3(time) {
     time3 = time;
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     timer3.textContent = formattedTime;
 }
 
@@ -205,18 +196,14 @@ function updateDuration3() {
     const time = parseInt(duration3.value);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     duration_label3.textContent = formattedTime;
 }
 
 function startTimer4() {
     if (!running4) {
         time4 = parseInt(duration4.value);
-        interval4 = setInterval(() => {
-            if (time4 === 0) stopTimer4();
-            else updateTimer4(time4-1);
-        }, 1000);
-        running4 = true;
+        pauseTimer4();
     }
 }
 
@@ -238,13 +225,14 @@ function pauseTimer4() {
 function stopTimer4() {
     clearInterval(interval4);
     running4 = false; updateTimer4(0);
+    pause4.textContent = 'Pause';
 }
 
 function updateTimer4(time) {
     time4 = time;
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     timer4.textContent = formattedTime;
 }
 
@@ -252,6 +240,6 @@ function updateDuration4() {
     const time = parseInt(duration4.value);
     const minutes = Math.floor(time / 60);
     const seconds = time % 60;
-    const formattedTime = `${minutes}:${seconds.toString().padStart(2, '0')}`;
+    const formattedTime = `Time: ${minutes}:${seconds.toString().padStart(2, '0')}`;
     duration_label4.textContent = formattedTime;
 }
