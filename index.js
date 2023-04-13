@@ -1,4 +1,4 @@
-let celebs = []
+let files = ['normal', 'extended'], ind = 0, celebs = [], change;
 let time1, time2, time3, time4;
 let interval1, interval2, interval3, interval4;
 let running1, running2, running3, running4;
@@ -16,9 +16,10 @@ let next1, next2, next3, next4;
 let reset1, reset2, reset3, reset4;
 
 window.onload = async function() {
-    const response = await fetch('https://raw.githubusercontent.com/Jakealtman1/celeb/main/celeb.csv')
-    const data = await response.text()
-    celebs = data.split('\n').map(entry => entry.trim())
+    await changeData();
+
+    change = document.getElementById('changeData');
+    change.addEventListener('click', changeData);
 
     time1 = 60, time2 = 60, time3 = 60, time4 = 60;
     running1 = false, running2 = false, running3 = false, running4 = false;
@@ -115,6 +116,17 @@ window.onload = async function() {
     pass4.addEventListener('click', updateCeleb4);
     next4.addEventListener('click', nextCeleb4);
     reset4.addEventListener('click', resetCeleb4);
+}
+
+async function getData(name) {
+    const url = 'https://raw.githubusercontent.com/Jakealtman1/celeb/main/data/' + name + '.csv';
+    const response = await fetch(url);
+    const data = await response.text();
+    celebs = data.split('\n').map(entry => entry.trim());
+}
+
+async function changeData() {
+    await getData(files[(ind++) % files.length]);
 }
 
 function startTimer1() {
