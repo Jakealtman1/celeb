@@ -101,19 +101,19 @@ window.onload = async function() {
     reset3 = document.getElementById('reset3');
     reset4 = document.getElementById('reset4');
 
-    pass1.addEventListener('click', updateCeleb1);
+    pass1.addEventListener('click', passCeleb1);
     next1.addEventListener('click', nextCeleb1);
     reset1.addEventListener('click', resetCeleb1);
 
-    pass2.addEventListener('click', updateCeleb2);
+    pass2.addEventListener('click', passCeleb2);
     next2.addEventListener('click', nextCeleb2);
     reset2.addEventListener('click', resetCeleb2);
 
-    pass3.addEventListener('click', updateCeleb3);
+    pass3.addEventListener('click', passCeleb3);
     next3.addEventListener('click', nextCeleb3);
     reset3.addEventListener('click', resetCeleb3);
 
-    pass4.addEventListener('click', updateCeleb4);
+    pass4.addEventListener('click', passCeleb4);
     next4.addEventListener('click', nextCeleb4);
     reset4.addEventListener('click', resetCeleb4);
 }
@@ -312,6 +312,13 @@ function updateCeleb1() {
     }
 }
 
+function passCeleb1() {
+    if (running1) {
+        updateScore1(points1-1);
+        updateCeleb1();
+    }
+}
+
 function nextCeleb1() {
     if (running1) {
         updateScore1(points1+1);
@@ -334,6 +341,13 @@ function updateCeleb2() {
     if (running2) {
         const pos = Math.floor(Math.random() * celebs.length);
         name2.textContent = "Name: " + celebs[pos];
+    }
+}
+
+function passCeleb2() {
+    if (running2) {
+        updateScore2(points2-1);
+        updateCeleb2();
     }
 }
 
@@ -362,6 +376,13 @@ function updateCeleb3() {
     }
 }
 
+function passCeleb3() {
+    if (running3) {
+        updateScore3(points3-1);
+        updateCeleb3();
+    }
+}
+
 function nextCeleb3() {
     if (running3) {
         updateScore3(points3+1);
@@ -384,6 +405,13 @@ function updateCeleb4() {
     if (running4) {
         const pos = Math.floor(Math.random() * celebs.length);
         name4.textContent = "Name: " + celebs[pos];
+    }
+}
+
+function passCeleb4() {
+    if (running4) {
+        updateScore4(points4-1);
+        updateCeleb4();
     }
 }
 
