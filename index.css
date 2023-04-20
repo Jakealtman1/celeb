@@ -25,6 +25,7 @@ table {
 td, th {
     color: #333; text-align: center;
     border: 1px solid #9400d3;
+    margin-top: 0px; margin-bottom: 0px;
 }
 
 .table-wrapper { display: flex; justify-content: center; }
@@ -49,20 +50,22 @@ td, th {
 
 h1 {
     font-size: 3em; font-weight: 400; text-align: center;
-    margin-bottom: 20px; margin-top: 20px;
+    margin-bottom: 10px; margin-top: 10px;
     margin-left: 25px; margin-right: 25px;
 }
 
 h3 {
     font-size: 2em; font-weight: 400; text-align: center;
-    margin-bottom: 20px; margin-top: 20px;
+    margin-bottom: 10px; margin-top: 10px;
     margin-left: 25px; margin-right: 25px;
 }
 
 span {
     font-size: 1.5em; font-weight: 400; text-align: center;
-    margin-bottom: 20px; margin-top: 20px;
+    margin-bottom: 10px; margin-top: 10px;
 }
+
+label { font-size : 1.25em; font-weight: 400; }
 
 .glow-on-hover {
     margin-top: 5px; margin-bottom: 5px;
@@ -120,6 +123,15 @@ span {
 
 .name {
     min-width: 19vw; max-width: 19vw;
-    min-height: 19vh; max-height: 19vh;
+    min-height: 25vh; max-height: 25vh;
     padding: 0px;
+}
+
+.formPopup {
+    left: 50.6%; top: 82%; z-index: 9;
+    display: none; position: fixed;
+    transform: translate(-50%, -50%);
+    background-color: rgba(148, 0, 211, 0.5);
+    border-radius: 10px; align-items: center;
+    padding: 20px;
 }

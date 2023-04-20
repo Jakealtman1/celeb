@@ -1,4 +1,4 @@
-let files = ['normal', 'extended'], ind = 0, celebs = [], change;
+let alarm = new Audio('data/alarm.mov'), ind = 0, celebs = [];
 let time1, time2, time3, time4;
 let interval1, interval2, interval3, interval4;
 let running1, running2, running3, running4;
@@ -16,10 +16,7 @@ let next1, next2, next3, next4;
 let reset1, reset2, reset3, reset4;
 
 window.onload = async function() {
-    await changeData();
-
-    change = document.getElementById('changeData');
-    change.addEventListener('click', changeData);
+    await getData('normal');
 
     time1 = 60, time2 = 60, time3 = 60, time4 = 60;
     running1 = false, running2 = false, running3 = false, running4 = false;
@@ -125,10 +122,6 @@ async function getData(name) {
     celebs = data.split('\n').map(entry => entry.trim());
 }
 
-async function changeData() {
-    await getData(files[(ind++) % files.length]);
-}
-
 function startTimer1() {
     if (!running1) {
         time1 = parseInt(duration1.value);
@@ -154,7 +147,7 @@ function pauseTimer1() {
 function stopTimer1() {
     clearInterval(interval1);
     running1 = false; updateTimer1(0);
-    pause1.textContent = 'Pause';
+    pause1.textContent = 'Pause'; alarm.play();
 }
 
 function updateTimer1(time) {
@@ -198,7 +191,7 @@ function pauseTimer2() {
 function stopTimer2() {
     clearInterval(interval2);
     running2 = false; updateTimer2(0);
-    pause2.textContent = 'Pause';
+    pause2.textContent = 'Pause'; alarm.play();
 }
 
 function updateTimer2(time) {
@@ -242,7 +235,7 @@ function pauseTimer3() {
 function stopTimer3() {
     clearInterval(interval3);
     running3 = false; updateTimer3(0);
-    pause3.textContent = 'Pause';
+    pause3.textContent = 'Pause'; alarm.play();
 }
 
 function updateTimer3(time) {
@@ -286,7 +279,7 @@ function pauseTimer4() {
 function stopTimer4() {
     clearInterval(interval4);
     running4 = false; updateTimer4(0);
-    pause4.textContent = 'Pause';
+    pause4.textContent = 'Pause'; alarm.play();
 }
 
 function updateTimer4(time) {
@@ -431,4 +424,16 @@ function updateScore4(score) {
     points4 = score;
     const formattedScore = `Score: ${points4.toString().padStart(2, '0')}`;
     score4.textContent = formattedScore;
+}
+
+function openForm() {
+    document.getElementById("popupForm").style.display = "block";
+}
+
+async function closeForm() {
+    document.getElementById("popupForm").style.display = "none";
+    const data = document.getElementsByName("data");
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].checked) await getData(data[i].value);
+    }
 }

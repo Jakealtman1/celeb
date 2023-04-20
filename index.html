@@ -131,7 +131,18 @@
         </table>
     </div>
     <div>
-        <button id="changeData" class="glow-on-hover">Change Data</button>
+        <button id="changeData" class="glow-on-hover" onclick="openForm()">Change Data</button>
+    </div>
+    <div class="formPopup" id="popupForm">
+        <form class="formContainer">
+            <input type="radio" name="data" value="normal" checked>
+            <label for="normal">Normal</label>
+            <input type="radio" name="data" value="extended">
+            <label for="extended">Extended</label>
+            <input type="radio" name="data" value="sports">
+            <label for="sports">Sports</label>
+            <button type="button" class="glow-on-hover" onclick="closeForm()">Submit</button>
+        </form>
     </div>
 </body>
 
